@@ -1,0 +1,26 @@
+Native VLAN on a Router (ROAS):
+	- "encapsulation dot1q vlan-id native"
+	- Configure the IP address for the native VLAN on the router's physical interface
+
+Layer 3 / Multilayer switches:
+	- Switching and routing
+	- Layer 3 aware
+	- Can assign IPs to interfaces, like a router
+	- You can create virtual interfaces for each VLAN
+	- Can configure routes
+	- Can be used for inter-VLAN routing
+	- Preferred method for inter-VLAN routing in large networks
+	- "ip routing" IMPORTANT
+		- Enables L3 routing on the switch
+	- "no switchport"
+		- Allows you to assign IPs to switch ports
+	
+SVI (Switch Virtual Interfaces)
+	- Can assign IPs to in multilayer switches
+	- Configure PCs to use the SVI (Not the router) as their gateway address
+	- Switch will route the traffic
+	- To send data to the internet, configure a default route on one of the interfaces (usually connected to a router)
+	- "interface vlan10"
+	- "ip address <ip> <subnet mask>"
+	- "no shutdown"
+	
