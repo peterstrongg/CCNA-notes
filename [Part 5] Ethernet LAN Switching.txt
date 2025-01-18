@@ -1,0 +1,49 @@
+LAN (Local Area Network):
+	- PDUs (Protocol Data Units)
+
+Ethernet Frame:
+	- Ethernet Header
+		- Preamble
+			- 7 bytes
+			- Alternating 1s and 0s
+				- Allows devices to synchronize their receiver clocks
+		- SFD (Start Frame Delimiter)
+			- 1 byte
+			- 10101011
+			- Marks the end of the Preamble
+		- Destination & Source
+			- Indicate the devices sending and receiving frame
+			- Dest and source MAC addresses (Media Access Control)
+			- 6 bytes each
+		- Type (IPv4 or IPv6) or Length
+			- 2 bytes
+			- Value less then 1500 indicates the LENGTH of packet
+			- Value of 1536 or greater indicates the TYPE (IPv4 or IPv6). Length is determine via other methods
+				- IPv4 = 0x0800 (hex) 2048 in decimal
+				- IPv6 = 0x86DD (hex) 34525 in decimal
+	- Packet
+	- Ethernet Trailer
+		- Frame Check Sequence
+			- 4 bytes
+			- Detects corrupted data by running a CRC (Cyclic Redundancy Check) algorithm over the received data
+			
+	- Header + Trailer = 26 bytes
+
+Hexadecimal:
+	- 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+
+MAC Addresses (Media Access Control):
+	- 6 byte physical address assigned to the device when it is made
+	- A.K.A (BIA) Burned-in address
+	- Globally unique
+	- First 3 bytes are OUI (Organizationally Unique Identifier) assigned to the company making the device
+	- Last 3 bytes are unique to the device itself
+	- Written as 12 hexadecimal characters
+	- Dynamically Learned MAC Address:
+		- Switches keep a MAC Address table that update as src destinations come in
+	- Unknown Unicast Frame - Switch doesnt have an entry for this destination in MAC Address table
+		- If this happens, switch FLOODs (sends to all interfaces except source)
+	- Known Unicast Frame - Entry is already in MAC table
+	- MAC address table entries are cleared after 5 minutes of inactivity
+	
+

@@ -1,0 +1,62 @@
+Console Port: RJ45 or USB Mini-B
+	- Rollover cable
+		- 8 Pins
+			- 1-8
+			- 2-7
+			- etc.
+	
+	- Need to use a terminal emulator to connect to serial port (PuTTY)
+		- Speed 9600
+		- 8 data bits
+		- 1 stop bit
+		- None Parity
+		- None Flow control
+		
+User Exec Mode(>):
+	- Indicated by ">"
+	- Host name is indicated before the ">" SGN
+	- Limited in capability
+	- Mostly view only permissions
+	- 'user mode'
+	
+Privelged EXEC Mode(#):
+	- "enable" command
+	- Provides complete access to view the devices configuration, restart the device, etc.
+	- Cannot change the config but can change the time, save config file, etc.
+
+"?" command to view commands available
+
+Global Configuration Mode (config)#:
+	- "configure terminal" command
+	- "enable password <password>" to set a password
+		- Passwords are case sensitive
+
+<cr>: no further options
+
+"exit" takes you back one privelege level
+
+- There are two config files kept on the device
+	- Running-config:
+		- The current active configuration file on the device. As you enter commands in the CLI, you edit the acvitve configuration
+	- Startup-config:
+		- The configuration file that will be loaded upon restart of the device
+	- "show running-config" and "show startup-config"
+
+Saving Config to startup-config:
+	- "write"
+	- "write memory"
+	- "copy running-config startup-config"
+
+"service password-encryption"
+	- encrypts plain-text passwords in configs
+	- Type 7: ciscos proprietary encryption algorithm
+		- easy to crack
+	
+	- "enable secret <password>"
+		- Greater encryption
+		- Type 5: MD5 encryption
+		
+"no <command>"
+	- cancel command in parameter
+		
+	

@@ -1,0 +1,19 @@
+IANA (Internet Assigned Numbers Authority):
+	- Assigns IPv4 addresses/networks to companies based on their size
+	- i.e. smaller companies get class C networks
+
+Point-to-Point network:
+	- network connecting two routers (routers)
+
+CIDR (Classless Inter-Domain Routing):
+	- subnets
+	- 2^<number of host bits> - 2
+	- 8,   7,   6,  5,  4,  3, 2, 1, 0
+	- 256, 128, 64, 32, 16, 8, 4, 2, 1 (-2 for usable addresses)
+	
+CIDR /31:
+	- 0 usable address
+	- For point-to-point connections
+	
+CIDR /32:
+	- Static routes to one host

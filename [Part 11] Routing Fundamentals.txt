@@ -1,0 +1,24 @@
+Routing:
+	- The process that routers use to determine the path that IP packets should take over a network to reach their destination
+	- Routers store routes to all known destinations in a routing table
+	- Two main methods:
+		- Dynamic Routing:
+			- OSPF to share routing informatoin with eachotehr automatically and build their routing tables
+		- Static Routing:
+			- A network engineer/admin manually configures routes on the router
+	
+	- WAN: A network that extends over a large geographical area
+	- "show ip route" - shows routing table 
+	- Connected "C" Routes:
+		- Route to the network that the interface is connected to
+		- R1 G0/2 IP = 192.168.1.0/24
+		- Provides a route to all hosts in that network
+	- Local  "L" Routes:
+		- The exact IP address configured on the interface
+		- A /32 netmask is used to specify the exact address of the interface
+		
+Route Selection:
+	- Routers choose the most specific matching route
+		- Longest prefix length/Fewer IPs = more specific, /32 is the most specific 
+
+** ROUTERS DO NOT FLOOD PACKETS **

@@ -1,0 +1,85 @@
+RJ-45 (RJ = Registered Jack)
+	- Used on the end of a copper ethernet cable
+	- 8 pins
+
+Ethernet:
+	- A collection of network protocols/standards
+	
+Bits: 0 or 1
+Byte: 8 bits
+Speed is measured in bits per second
+1 Kb = 1000 bits
+1 Mb = 1000000 bits
+1 Gb = 1 Billion bits
+1 Tb = 1 Trillion bits
+
+IEEE 802.3 standards
+IEEE = Inistitute of Electrical and Electronic Engineers
+Max length of twisted pair cable: 100m
+
+UTP Standards
+Speed		Common Name			IEEE Standard		Informal Name		Wire Ct.			Max Length
+10 Mbps		Ethernet			802.3i				10BASE-T			2 pairs (4 wires)	100m
+100 Mpbs	Fast Ethernet		802.3u				100BASE-T			2 pairs (4 wires)	100m
+1 Gbps		Gigabit Ethernet	802.3ab				1000BASE-T			4 pairs (8 wires)	100m
+10 Gbps		10 Gig Ethernet		802.3.an			10GBASE-T			4 pairs (8 wires)	100m
+
+Cables:
+	UTP Cables:
+		- Unshielded Twisted Pair
+		- Twist protects against EMI (Electromagnetic Interference)
+		- Tx = Transmit
+		- Rx = Receive
+		10/100BASE-T:
+			PCs, Firewalls, and Routers:
+				- Pins 1 and 2: Tx/Rx
+				- Pins 3 and 6: Rx/Tx
+			* Switches transmit on 3/6 and receive on 1/2
+			* Straight-through cable (pin 1 -> pin 1, pin 2 -> pin 2, etc.)
+			* Cannot connect router to router, switch to switch, pc to pc, etc. with straight through cable
+				* Same devices receive and transmit on same pins
+			* Crossover cable:
+				- 1/2 -> 3/6 and 3/6 and 1/2
+				- can be used to connect same network devices together
+		- Auto MDI-X: Automatically determine which pins Tx and Rx between devices
+		1000/10GBASE-T:
+			- Pairs: 1/2, 3/6, 4/5, 7/8
+			- All pairs are bidirectional
+			
+Fiber-Optic Connections:
+	- SFP Transceiver (Small Form-Factor Pluggable)
+	- Send light over glass wires
+	- Two wires, one for Tx and one for Rx
+	Layers of Fiber Cable:
+		1. Fiberglass Core
+		2. Cladding that reflects light
+		3. Protective buffer
+		4. Outer jacket of cable
+	
+	Multimode Fiber
+		- Core of mulitfiber is wider than single-mode fiber
+		- Allows longer cables than UTP but shorter than single-mode fiber
+		- Cheaper than single-mode Fiber (Use cheaper LED based SFP transmitters
+	
+	Single-Mode Fiber
+		- Narrower than multimode fiber
+		- Light enters at a single angle from laser based transmitters
+		- Longer cables than UTP and multimode cables
+		- Most expensive due to laser tramsitter
+
+Fiber-Optic Cable Standards
+Informal Name			IEEE Standard		Speed		Cable Type		Max-Length
+1000BASE-LX				802.3z				1 Gbps		Multi/Single	550m(mm)/5km(sm)
+10GBASE-SR				802.3ae				10Gbps		Multi			400m
+10GBASE-LR				802.3ae				10Gbps		Single			10km
+10GBASE-ER				802.3ae				10Gbps		Single			30km
+
+UTP 														Fiber Optic
+- Cheaper													- Expensive
+- Shorter distance											- Longer distance
+- Vulnerable to EMI											- Not vuln to EMI
+- RJ45 Ports												- SFP ports
+- Emit faint signal which can be copied (Security risk)		- Do not emit faint signal
+		
+			
+

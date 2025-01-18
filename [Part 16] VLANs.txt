@@ -1,0 +1,27 @@
+What is a LAN?:
+	- A single broadcast domain, including all devices in that broadcast domain
+	
+VLANs:
+	- Lots of unnecessary broadcast traffic can reduce network performance
+	- Security concerns, only certain PCs should be able to access certain subnets
+	- VLANs operate at layer 2 (switch interfaces)
+	- Separate end hosts at layer 2
+	- Switches do not forward directly between hosts in different VLANs
+		- Must forward traffic through router
+		
+VLAN Configuration:
+	- "show vlan brief"
+	- VLANS 1, 1002-1005 can not be deleted
+	- Configuration steps:
+		- "interface range <iface range>"
+		- "switchport mode access"
+			- an access port is a switchport that belongs to a single VLAN
+			- switch ports which carry multiple VLANs are called 'trunk ports'
+		- "switchport access vlan 10" adds ifaces to vlan
+	- "vlan <name>" creates a vlan, also enters config mode for that vlan
+	- "name <name>
+	- " assign vlan name
+	
+	
+* Default switchport mode is auto
+11000000

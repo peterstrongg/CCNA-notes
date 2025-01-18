@@ -1,0 +1,25 @@
+What is a Computer Network?: 
+	- A digital telecommunications network which allows nodes to share resources
+	Client:
+		- A device that accesses a service made available by a server
+	Server:
+		- A device that provdides functions or services for clients
+	Switches:
+		- Forward traffic within a LAN
+		- Do not provide connectivity between LANs
+	Routers:
+		- Provide connectivity between LANs
+		- Send data over the internet
+	Firewalls:
+		- Can sit outside or inside a LAN
+		- Monitor and control network traffic based on configured rules
+		- Next gen firewalls contain more advanced features
+		Network Firewalls:
+			- Hardware devices that filter traffic between networks
+		Software/Host-Based Firewalls:
+			- Not a network firewall
+			- Applications that filter traffic entering and exiting a host machine, like a PC
+		
+Cisco ISR - Router
+Cisco ASA - Firewall
+Cisco Catalyst - Switch

@@ -1,0 +1,3 @@
+Each interace on a router gets its own MAC Address
+IPv4 headers always stay the same
+Ethernet headers are deencapsulated and then new ones are added

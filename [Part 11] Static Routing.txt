@@ -1,0 +1,20 @@
+Default Gateway (Router):
+	- To send packets to destinations outside of their local network, PCs must send packets to their
+	default gateway (gateway = router)
+	- default gateway aka default router
+		- A route to 0.0.0.0/0 (0.0.0.0-255.255.255.255)
+		- Default route is the least  specific route
+	
+Static Route Configuration:
+	- When a router recieves a frame, it de-encapsulates it and looks at the inside packet
+	- Each route in a path needs two routes for two way reachability
+	
+	- "ip route <dest-ip-address-prefix> <dest-netmask> <next-hop-ip OR exit-interface OR both>" (interface first) : configure a hop
+	- src/dest MACs change on each hop but src/dest IPs stay the same
+	
+Default Routes: 
+	- route to 0.0.0.0/0
+	- Least specific route possible
+	- Commonly used to route traffic to the internet
+	- * = candidate for default route
+	 

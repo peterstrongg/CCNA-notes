@@ -1,0 +1,46 @@
+128, 64, 32, 16, 8, 4, 2, 1
+
+10.217.182.223/11
+11111111.110|00000.00000000.00000000
+
+Network Address: 10.192.0.0
+Broadcast Address: 10.223.255.255
+First usable address: 10.192.0.1
+Last usable address: 10.223.255.254
+Number of hosts: 2097152-2 = 2097150
+
+
+VLSM (Variable-Length Subnet Masks):
+	- FLSM (Fixed length subnet masks)
+	- Creating subnets of different sizes to make network addressing more efficient
+	1. Assign the largest subnet at the start of the subnet
+	2. Assign the second-largets after the first
+	3. etc.
+	
+LAB:
+192.168.5.0/24
+
+LAN1:
+11111111.11111111.11111111.10|111110
+FUA: 192.168.5.129/26
+LUA: 192.168.5.190/26
+
+LAN2:
+11111111.11111111.11111111.0|0000000
+FUA: 192.168.5.1/25
+LUA: 192.168.5.126/25
+
+LAN3:
+11111111.11111111.11111111.1100|1111
+FUA: 192.168.5.193/28
+LUA: 192.168.5.206/28
+
+LAN4:
+11111111.11111111.11111111.1101|1110
+FUA: 192.168.5.209/28
+LUA: 192.168.5.222/28
+
+P2P:
+11111111.11111111.11111111.111000|00
+FUA: 192.168.5.225/30
+LUA: 192.168.5.226/30

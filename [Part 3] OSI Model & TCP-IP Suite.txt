@@ -1,0 +1,73 @@
+Networking Models:
+	- Categorize and provide a structure for networking protocols and standards
+
+OSI Model - Open Systems Interconnection Model
+	- Created by the International Organization Standarization (ISO)
+	- Encapsulation and De-encapsulation
+	- PDUs (Protocol Data Units)
+		- Data
+		- Segment
+		- Packet
+		- Frame
+		- Bit (L1)
+
+	7. Application (HTTP, HTTPS)
+		- Closest to end user
+		- Interacts with software
+		- Identify communication partners
+		- Process-to-process
+	6. Presentation
+		- Translate between app and network formats
+		- Encryption/decryption of data
+		- Translates between app layer formats
+	5. Session
+		 - Controls dialogues/sessions between hosts
+		 - Establishes, manages, and terminates connections between local app and remote app
+	* DATA
+	4. Transport
+		- L4 header is added on to each segment
+		- Segments and reassembles data for communications between end hosts
+		- Breaks large pieces of data into smaller segments for easier transmission
+		- Host-to-host communication
+	* SEGMENT
+	3. Network
+		- L3 Header is added
+		- Provides connectivity between end hosts on different networks
+		- Provides logical addressing
+		- Path selection between source and destination
+		- Routers
+	* PACKET
+	2. Data Link
+		- L2 header and trailer
+		- Provides node-to-node connectivity and data transfer
+		- Define how data is formatted for transmission over physical medium
+		- Detects and corrects physical layer errors
+		- Layer 2 addressing, separate from Layer 3
+		- Switches
+	* FRAME
+	1. Physical
+		- Defines physical characteristics of the medium used to transfer data between devices
+		- Voltage levels, max transmission distances, conectors, cable specifications, etc. 
+		- Digital bits are converted into electrical or radio
+	* BITS
+		
+	- Acronym
+		- Please
+		- Do
+		- Not
+		- Teach 
+		- Students
+		- Pointless 
+		- Acronyms
+		
+TCP/IP Suite
+	- Set of communications protocols used in the internet and other networks
+	- Similar to OSI with fewer layers
+	
+	4. Application
+	3. Transport
+	2. Internet - Network Layer in OSI
+	1. Link - Physical and Data Link in OSI
+	
+	- OSI model is used to communicate issues in a network
+		

@@ -1,0 +1,74 @@
+Packets
+
+L3 Header: 
+	- Version:
+		- 4 bits
+		- Identifies the verion of IP in use
+			- IPv4, 4, 0100
+			- IPv6, 6, 0110
+	- IHL (Internet Header Length):
+		- 4 bits
+		- Indicates total length of the header in 4 byte increments
+			- i.e. value of 5 = 5x4 = 20 bytes
+			- Min value = 5 (20 bytes), ipv4 with no options
+			- Max value = 15 (60 bytes) (1111)
+	- DSCP (Differentiated Services Code Point)
+		- 6 bits
+		- Used for QoS (Quality of Service)
+		- Used to prioritize delay-sensitive data (streaming, voice, video, etc.)
+	- ECN (Explicit Congestion Notification):
+		- 2 bits
+		- Provides end to end notification of network congestion
+		- Optional field
+	- Total length field
+		- 16 bits
+		- Indicates total length of the packet (L3 header + L4 segments)
+		- Measured in bytes
+		- Min bytes = 20
+		- Max bytes = 65535
+	- Identifcation Field
+		- 16 bits
+		- If a packet is fragmented due to being too large, this field is used to identify which packet the fragment belongs to
+		- Packets are fragmented if larger than MTU (Maximum transmissable unit), usually 1500 bytes
+		- Fragments are reassembled by the receiving host
+	- Flags
+		- 3 bits
+		- Bit 0: Reserved, always 0
+		- Bit 1: Dont Fragment bit, used to indicate a packet that should not be fragmented
+		- Bit 2: More Fragments (MF) 1 if more fragments, 0 if no more
+	- Fragment offset field
+		- 13 bits
+		- Used to indicate the position of the fragment within the original unfragmented packet
+	- TTL
+		- 8 bits
+		- Routers will drop ttls of 0
+		- Prevents infinite loops
+		- Indicates a hop count
+		- Recommended default is 64
+	- Protocol
+		- 8 bits
+		- Indicates the protocol of encapsulated L4 PDU
+		- 6 = TCP
+		- 17 = UDP
+		- 1 = ICMP
+		- 89 = OSPF (Open shortest path first)
+	- Header Checksum
+		- 16 bits
+		- Used to check for errors in  the IPv4 header
+		- Router calculates the checksum of the header and compares it to the one in this field
+		- if no match, then router drops packet
+		- Only for IPv4 errors
+	- Src/Dest IPs
+		- 32 bits each
+	- Options
+		- optional
+		- 0-320 bits
+		- Rarely used
+		- If the IHL is greater than 5, it means that options are present
+		
+Wireshark:
+	- 
+		
+	
+		
+		

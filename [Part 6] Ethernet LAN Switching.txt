@@ -1,0 +1,39 @@
+Ethernet Frame
+	- The Preamble + SFD is usually not considered as part of the ethernet header
+	- The minimum size for an Ethernet frame is 64 Bytes
+	- Therefore, min. payload is 46 Bytes
+	- Payloads less than 46 bytes contain padding to fill in the difference
+	- Packets contain src and destination IP addresses
+	
+ARP (Address Resolution Protocol)
+	- Used to discover the Layer 2 Address (MAC) of a known Layer 3 address (IP Address)
+	- Two messages:
+		- ARP Request
+			- Broadcast ethernet frame (sent to all hosts on network)
+		- ARP Replay
+			- Unicast ethernet frame (Sent back to ARP requester)
+			
+	- In an ARP Request, the destination MAC Address is FFFF.FFFF.FFFF
+	- ARP Type: 0x0806
+
+ARP Table: 
+	- (arp -a) to view ARP table, "show arp" (Cisco IOS from Priveleged EXEC mode)
+	- static ARP entry: default entry
+	- dynamic ARP entry: Learned via ARP
+	
+Ping: 
+	- network utility to test reachability
+	- Measures round-trip time
+	- uses two messages
+		- ICMP echo request
+		- ICMP echo reply
+		* ICMP requires arp entry to be present first, therefore ARP must be run before ICMP because the host must be known
+		
+MAC Address Table:
+	- "show mac address-table"
+	- Aging (MAC Address disappear after 5 mins of inactivity
+	- Removing MAC Addresses
+		- "clear mac address-table dynamic" clears all dynamic MACs
+		- "clear mac address-table dynamic address <address>" clears specific dynamic MAC
+		- clear mac address-table dynamic interface <iface>" clears MACs associated with specific interface
+		

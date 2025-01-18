@@ -1,0 +1,68 @@
+Trunk Ports:
+	- When a number of VLANs increases, using one interface per network is not feasible
+	- Trunk ports carry traffic from multiple VLANS over a single interface
+	- Switches tag all frames they send over a trunk link
+	- Frames sent over trunk ports are tagged
+	- Access ports are untagged ports
+
+VLAN Tagging:
+	- Trunking protocols:
+		- IEEE 802.1Q
+		- ISL (Inter-Switch Link)
+			- Old Cisco Protocol
+	
+	- 802.1Q:
+		- Header is placed between Source MAC and type fields in ethernet header
+		- 4 bytes in length:
+			- Tag Protocol Identifier (TPID)
+			- Tag Control Information (TCI)
+		- TCI has 3 sub-fields
+		- TPID (16 bits)
+			- 0x8100 (indicates the frame is 802.1Q tagged
+		- TCI:
+			- PCP (Priority Code Point)
+				- 3 bits
+				- CoS (Class of Service) prioritizes important traffic in congested networks
+			- DEI (Drop Eligible Indicator)
+				- 1 bit
+				- Indicate frames that can be dropped if the network is congested
+			- VID (VLAN ID)
+				- 12 bits
+				- Identifies the VLAN the frame belongs to
+				- 12 bits = 4096 total VLANS (2^12) 0-4095
+					- 0 and 4095 are reserved
+					- 1-4094 is the actual range
+
+VLAN Ranges: 
+	- 1-1005: Normal Ranges
+	- 1006-4094: Extended VLANS
+
+Native VLAN:
+	- VLAN 1 by default on all trunk ports
+	- No 802.1Q tag is not added to frames in native vlans
+	- When a switch receives an untagged frame on a trunk port, it assumes the frame belongs to the native VLAN
+		* NATIVE VLAN MUST MATCH ACROSS SWITCHES
+	- For security purposes, the native vlan should be an unused vlan
+	- "switchport trunk native vlan <vlan number>" change native vlan
+		
+Configuring Trunk Ports:
+	- All VLANs are allowed on a trunk by default
+	- "switchport mode trunk"
+		- "switchport trunk encapsulation dot1q" (sometimes necessary to create trunk)
+	- "show interfaces trunk"
+	- "switchport trunk allowed vlan 10,30" allows vlans on trunk
+	- "switchport trunk allowed vlan add 20" adds 20 to allowed vlans
+	- "switchport trunk allowed vlan remove 20" removes 20 to allowed vlans
+	- all and except are also options for configuring trunks
+	- "show vlan brief" does not show trunk port and associated interfaces
+		- use "show interfaces trunk" to show trunk and interfaces
+
+ROAS (Router on a Stick):
+	- Used to route between multiple VLANs using a single interface on the router and switch
+	- Switch interface is configured as regular trunk
+	- Router iface is configured using subinterfaces
+	- G0/0.10, G0/0.20, etc. for sub interfaces. Value after decimal should represent vlan number
+	- "interface g0/0.10"
+	- "encapsulation dot1q <vlan number>" treat traffic with this tag as if it arrived on interface that you are configing
+	- "ip address <ip> <mask>"
+	
