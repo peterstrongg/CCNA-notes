@@ -1,0 +1,49 @@
+DTP (Dynamic Trunking Protocol):
+	- Cisco Propietary protocol that allows Cisco switches to
+	dynamically determine their interface status (access or trunk)
+	- Enabled by default
+	- Manual config is recommended, DTP should be disabled
+	- "switchport mode dynamic <auto or desirable>"
+		- Desirable will actively try to form a trunk with other Cisco switches
+		also is the default mode on older switches
+		- Auto is more passive
+	- "switchport nonegotiate" disables DTP
+	
+VTP (VLAN Trunking Protocol):
+	- Allows you to configure VLANS ona central VTP server switch, and other switches (VTP clients)
+	will sync their database to thes erver
+	- Rarely used
+	- versions 1, 2, 3
+	- SERVER, client and transparent
+	- "show vtp status"
+
+VTP Servers:
+	- Can add/modify/delete VLANS
+	- Stored in non-volatile RAM
+	- Advertise latest version of database on trunk ports
+	- Default mode
+
+VTP Clients:
+	- Cannot add/modify/delete VLANS
+	- Will advertise and forward database to other clients on trunk ports 
+	- "vtp mode client"
+	
+VTP Transparent Mode:
+	- Do not participate in VTP domain
+	- Maintaines its own VLAN database in NVRAM
+	- Will forward ads that are in the same domain
+	- Rev number is 0
+	
+* "vtp domain <domain name>"
+* "vtp version <version number>"
+	- increase rev number
+
+VTP versions:
+	- 1:
+		- 
+	- 2:
+		- supports token ring VLANS
+	- 3: 
+		- Allows all vlans beyond default VLANS (1-1005)
+
+
