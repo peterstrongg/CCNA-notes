@@ -39,10 +39,18 @@ Per-VLAN Spanning Tree:
 Root Ports - Closest to the root bridge
 Designated Ports - Non-root port that forwards traffic away from the root bridge
 
+Spanning Tree Costs:
+	10Mbps: 	100
+	100Mbps:	19
+	1Gbps:		4
+	10Gbps:		2
+
 Summary: 
 	1) One switch is elected as the root bridge. All ports on the root bridge are designated ports (Forwarding state)
+	Root Bridge Selection
 		- Lowest Bridge ID
 		- MAC address tie breaks
+		
 	2) Each remaining switch will select ONE of its interfaces to be its root port (Forwarding state)
 	Ports across from the root port are always designated ports
 	Root port selection:
@@ -52,5 +60,6 @@ Summary:
 	
 	3) Each remaing collision domain will select ONE interface to be a designated port. The other port in the
 	collision domain will be the non-designated port
+	Designated Port selection:
 		1. Iface on switch with the lowest cost
 		2. Interface on switch with lowest bridge ID
