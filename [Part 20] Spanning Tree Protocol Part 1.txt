@@ -52,6 +52,7 @@ Root Cost:
 	
 Designated Ports:
 	- Non-root port that forwards traffic away from the root bridge 
+	- Only designated ports forward BPDUs
 
 Summary: 
 	1) One switch is elected as the root bridge. All ports on the root bridge are designated ports (Forwarding state)

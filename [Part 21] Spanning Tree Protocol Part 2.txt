@@ -1,0 +1,71 @@
+STP States:
+	- Blocking (Stable):
+		- Non-designated ports
+		- Effectively disabled to prevent loops
+		- Do not send/receive regular traffic
+		- Do receive STP BPDUs
+		- Do not forward BPDUs
+		- Do not learn MAC addresses
+	- Listening (Transitional):
+		- Only designated and root ports
+		- Leads to the forwarding states (15 seconds)
+		- Only forwards STP BPDUs, NOT regular traffic
+		- Does not learn MAC addresses
+	- Learning (Transitional):
+		- 15 Seconds long
+		- Only forwards BPDUs, not regular traffic
+		- Does learn MAC addresses from regular traffic
+	- Forwarding (Stable)
+		- Root/Designated ports
+		- Operates as normal
+		- Sends regular and STP BPDU traffic
+		- Learns MAC addresses
+		
+Spanning Tree Timers:
+	- Hello (2 Sec):
+		- How often the root bridge sends hello BPDUs
+	- Forward Delay (15 sec):
+		- How long the switch will stay in the listening and 
+		learning states
+	- Max Age (20 sec (10*Hello)):
+		- How long an interface will wait after ceasing to receive
+		Hello BPDUs to change the STP topology
+		
+* A forwarding state may go directly into Blocking state but, a blocking state
+must go through the listening and learning states before forwarding to prevent 
+loops
+
+PVST  = only ISL
+	- Dst MAC Address: 0180.c200.0000
+PVST+ = ISL and 802.1Q
+	- Dst MAC Address: 01:00:0c:cc:cc:cd
+	
+STP Toolkit:
+	- Portfast:
+		- For ports connected to endhosts
+		- Allos oprt to move immediately to forwarding state
+			- Must be used only on end-hosts
+		- "spanning-tree portfast" 
+		
+BPDU Guard:
+	- "spanning-tree bpduguard enable"
+	- If an interface with BPDU guard enabled receives a BPDU from another switch, 
+	the interface will be shut down to prevent a loop from forming
+	
+Root Guard:
+	- Even if a switch receives a superiour BPDU, the switch will not accept
+	the new switch as the root bridge. The interface will be disabled
+
+Loop Guard:
+	- Even if an interface stops receiving BPDUs, it will not start forwarding
+
+
+Spanning Tree Mode:
+	- "spanning-tree mode <mst, pvst, rapid-pvst>"
+	- "spanning-tree vlan <vlan number> root primary"
+		- sets the STP priority to 24576. If another switch already has a priority
+		lower than 24576, it sets this priority to 4096 less than the other switches priority
+	"spanning-tree vlan <vlan number> root secondary"
+		- sets priority to 28672
+		
+STP Load-Balancing: 
