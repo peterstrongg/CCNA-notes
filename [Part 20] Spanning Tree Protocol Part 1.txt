@@ -22,9 +22,9 @@ STP Process:
 	- All ports on the root bridge are put in the forwarding state. Other swtiches must have a path to reach
 	the root bridge
 
-BPDU:
+BPDU (Bridge ID):
 	- Bridge Priority (16 bits)
-		- Bridge Prioridy (4 bits)
+		- Bridge Priority (4 bits)
 			- Default priority is 32768
 			- Can only change by values of 4096 without changing vlan
 		- Extended System ID (VLAN ID) (12 bits)
@@ -33,17 +33,25 @@ BPDU:
 	
 	* By default, the switch with the lowest MAC address becomes the root bridge
 	
-Per-VLAN Spanning Tree:
+Per-VLAN Spanning Tree (PVST):
 	- STP instance in each VLAN so different interfaces on a switch can be forwarding or blocking
-	
-Root Ports - Closest to the root bridge
-Designated Ports - Non-root port that forwards traffic away from the root bridge
 
 Spanning Tree Costs:
 	10Mbps: 	100
 	100Mbps:	19
 	1Gbps:		4
 	10Gbps:		2
+	
+Root Ports:
+	- Closest to the root bridge
+	- Path to the root bridge
+	- Ports connected to the root port must be designated
+	
+Root Cost:
+	- Sum of all outgoing interfaces on its way to the root switch 
+	
+Designated Ports:
+	- Non-root port that forwards traffic away from the root bridge 
 
 Summary: 
 	1) One switch is elected as the root bridge. All ports on the root bridge are designated ports (Forwarding state)
@@ -55,8 +63,10 @@ Summary:
 	Ports across from the root port are always designated ports
 	Root port selection:
 		1. Lowest root cost
-		2. Lowest neighbor bridge ID
+		2. Lowest neighbor bridge ID (Incl. MAC Address)
 		3. Lowest neighbor port ID
+			- "show spanning-tree" 
+			- "show spanning-tree detail"
 	
 	3) Each remaing collision domain will select ONE interface to be a designated port. The other port in the
 	collision domain will be the non-designated port
