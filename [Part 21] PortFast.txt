@@ -1,0 +1,22 @@
+Portfast:
+	- Default takes 30 secs before port can send/receive data
+	- Portfast solves this ^
+	- Ports with portfast enabled are immediately in forwarding state
+	- "spanning-tree portfast"
+		- Only for individual interface
+	- "spanning-tree portfast default"
+		- Enables portfast on all access ports
+	- Portfast should not be enabled on interfaces that connect to other switches
+	- Will not be "active" on trunking ports
+	- "show spanning-tree interface <iface-id> detail"
+	- "spanning-tree portfast disable"
+	
+PortFast on Trunk Ports:
+	- Sometimes you may want to enable portfast on trunk ports:
+		- A port connected to a virtualization server with VMs in different VLANs
+		- A port connected to a router via ROAS
+	- Can only be configged per iface-id
+	- "spanning-tree portfast trunk"
+
+PortFast Edge:
+	- 

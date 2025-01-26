@@ -43,9 +43,11 @@ PVST+ = ISL and 802.1Q
 STP Toolkit:
 	- Portfast:
 		- For ports connected to endhosts
-		- Allos oprt to move immediately to forwarding state
+		- Allows ports to move immediately to forwarding state
 			- Must be used only on end-hosts
 		- "spanning-tree portfast" 
+		- "spanning-tree portfast default"
+			- enables portfast on all access ports (no trunk ports)
 		
 BPDU Guard:
 	- "spanning-tree bpduguard enable"
