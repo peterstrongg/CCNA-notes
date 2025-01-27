@@ -18,5 +18,6 @@ PortFast on Trunk Ports:
 	- Can only be configged per iface-id
 	- "spanning-tree portfast trunk"
 
-PortFast Edge:
-	- 
+PortFast Edge vs Network:
+	- edge for hosts
+	- network for protecting against loops
