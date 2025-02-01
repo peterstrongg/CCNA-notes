@@ -1,0 +1,36 @@
+BPDU Guard: 
+	- Protects the network from unauthorized switches being connected to ports intended for end hosts
+	- Configured separately from Portfast but usually used together
+	- If a BPDU guard enabled port receives a BPDU, it enters the error-disabled state, disabling the port
+	
+Configuration:
+	- Per Port:
+		- "spanning-tree bpduguard enable"
+	- Globally:
+		- "spanning-tree portfast bpduguard default"
+		- activated on all portfast enabled ports only
+			- NOT all access ports
+			
+Fixing ErrDisable:
+	- Fix the underlying issue
+	- "shutdown" then "no shutdown"
+	- ErrDisable Recovery:
+		- "show errdisable recovery"
+		- 5 minute timer
+		- "errdisable recovery cause bpduguard"
+		
+BPDU Filter:
+	- Sending BPDUs to hosts is unnecessary and undesirable:
+		- BPDUS contain information about the LAN's STP topology
+	- Stops port from sending BPDUs
+
+Configuration:
+	- "spanning-tree bpdufilter enable"
+		- Port will not send BPDUs
+		- Will ignore BPDUs it receives
+		- Disables STP on the Port
+			- Could cause loops. Use with caution
+	- "spanning-tree portfast bpdufilter default"
+		- Better than per-port
+	
+

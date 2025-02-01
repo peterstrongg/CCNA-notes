@@ -1,3 +1,5 @@
+"show spanning-tree interface <iface> detail"
+
 Portfast:
 	- Default takes 30 secs before port can send/receive data
 	- Portfast solves this ^
@@ -21,3 +23,4 @@ PortFast on Trunk Ports:
 PortFast Edge vs Network:
 	- edge for hosts
 	- network for protecting against loops
+	
