@@ -1,0 +1,24 @@
+* Protects networks from Loops by disabling a port if it unexpectedly stops receiving
+BPDUS, ensuring it does not mistakenly enter the forwarding state
+
+Unidirectional Link: A network link where data transmission only occurs in one direction:
+	- Damaged cables
+	- Faulty connectors or transcievers
+	- Fiber is more susceptible to errors
+		- two wires (Tx and Rx)
+
+Loop Guard:
+	- When a Loop Guard enabled ports Max Age timer counts down to 0, it doesn't become a Designated port
+	and start transitioning to Forwarding
+		- It enters the Broken (Loop Inconsistent) State
+		- This blocks the port
+	- "spanning-tree guard loop"
+	- "spanning-tree loopguard default"
+		- Enables on all ports
+		- "spanning-tree guard none"
+	- Usually should be enabled on Root and Non-Designated ports (Receive BPDUs)
+	
+Loop Guard w/ Root Guard:
+	- Cannot be enabled on the same port at the same timer
+	- Mutually Exclusive
+	- Most specific commands take effect

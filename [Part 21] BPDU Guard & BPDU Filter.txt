@@ -18,11 +18,13 @@ Fixing ErrDisable:
 		- "show errdisable recovery"
 		- 5 minute timer
 		- "errdisable recovery cause bpduguard"
+		- "errdisable recover interval <seconds>"
 		
 BPDU Filter:
 	- Sending BPDUs to hosts is unnecessary and undesirable:
 		- BPDUS contain information about the LAN's STP topology
 	- Stops port from sending BPDUs
+	- Effectively disables STP on the port
 
 Configuration:
 	- "spanning-tree bpdufilter enable"

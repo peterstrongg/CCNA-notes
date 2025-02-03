@@ -1,0 +1,23 @@
+* Prevents a port from becoming a Root Port by disabling it if superior BPDUs
+are received, therby enforcing the current Root Bridge
+
+Placement of Root Bridge:
+	- Optimize traffic flow
+		- Minimize latency
+		- Minimize congestion
+	- Stability and Reliability
+	
+Root Guard Problem:
+	- Even if your root bridges priority is 0, its role can be taken by another switch with
+	a lower MAC address
+	- RootGaurd protects STP topoligy by preventing switches from accepting superior BPDUs
+	- If you want to ensure that the root bridge remains in your LAN, you can configure
+	Root Guard on the ports connected to switches outside of your control
+		- "spanning-tree guard root" on desired port
+		- Cannot enable by default
+	- If a Root Guard enabled port receives a superior BPDU, it will enter the Broken (Root Inconsistent)
+	state, effectively disabling it
+		- To re-enable a port disabled by Root Guard, you must solve the issue that disabled the port
+		- Ports will be automatically enabled after 20 seconds (Max Age)
+
+	
