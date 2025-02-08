@@ -1,0 +1,51 @@
+802.1W - Rapid STP
+802.1S - Multiple STP
+
+RSTP Costs:
+	10 Mbps		2,000,000
+	100 Mbps	200,000
+	1 Gbps		20,000
+	10 Gbps 	2000
+	100 Gbps	200
+	1 Tbps		20
+	
+RSTP Port States:
+	- Discarding State
+	- Learning State
+	- Forwarding State
+
+Port Roles:
+	- Root Port
+	- Designated Port
+	- Alternate Port
+		- Discarding Port that receives a superior BPDU from another switch
+		- Backup to the root port
+	- Backup Port
+		- Discarding port that receives a superior BPDU
+		- This only happens when two interfaces are connected to the same collision domain
+		- Backup for a designated port
+		
+"spanning-tree mode rapid-pvst" 
+
+RPVST BPDU:
+	- RSTP Protocol V2
+	- V0 for Classic STP
+	
+* In RSTP, All switches originate BPDUS from their designated ports
+	
+RSTP Link Types:
+	- Edge
+		- Connected to End hosts, move straight to forwarding state
+		- Similar to Portfast
+		- "spanning-tree portfast"
+	- Point to Point
+		- Connected to another switch
+		- Full-duplex
+		- Don't need to configure the iface (it should be detected)
+		- "spanning-tree link-type point-to-point
+	- Shared Ports
+		- Connected to a hub
+		- Half-duplex
+		- Detected by switch
+		- "spanning-tree link-type shared"
+	
