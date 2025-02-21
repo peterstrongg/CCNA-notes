@@ -1,0 +1,34 @@
+EtherChannel (AKA Port Channel or LAG):
+    - Grouped interfaces are treated as a single interfaces
+    - EtherChannel ifaces are load balanced automatically
+
+Load Balances:
+    - Based on flows
+    - Frames in the same flow will be forwarded using the same physical interface
+    - Selection Calculation:
+        - Source MAC
+        - Destination MAC
+        - Source + Destination MAC
+        - Source and Destination IP (one, other, or both)
+    - "show etherchannel load-balance"
+    - "port-channel load-balance src-dst-mac"
+
+EtherChannel Configuration:
+    - PAgP (Port Aggregation Protocol)
+        - Cisco Protocol
+        - "interface range <range>"
+        - "channel-group 1 mode desirable"
+    - LACP (Link Aggregation Control Protocol) *
+        - IEEE 802.3ad 
+        - Dynamically negotiates the creation/maintenance of EtherChannel
+        - "channel-group 1 mode <active/passive>"
+    - Static EtherChannel
+        - ifaces are statically configured to form EtherChannel
+    - Up to 8 ifaces can be formed into a single EtherChannel (16 for LACP but only 8 will be used)
+    - "channel-protocol lacp/pagp"
+        - Specify mode 
+    - "interface port-channel <port-channel id>"
+        - configure port challen
+    - "show etherchannel summary"  
+    - "show etherchannel port-channel"         
+
