@@ -1,1 +1,46 @@
+Dynamic Routing:
+  - Dynamic Routing Protocols advertise info abou tthe routes they know from other routers
 
+Protocols:
+  - IGP (Interior Gateway Protocol)
+    - Share routes within a single AS
+	Algorithm:
+		- Distance Vector
+			- RIP (Routing Information Protocol)
+			- EIGRP (Enhanced Interior Gateway Routing Protocol)
+		- Link State 
+			- OSPF
+			- IS-IS (Intermediate System to Intermediate System)
+			
+  - EGP (Exterior Gateway Protocol)
+    - Share routes between AS's
+    - Path Vector
+		- BGP (Border Gateway Protocol): Only EGP 
+		
+Distance Vector Protocols:
+	- Sending known destination networks and metric to reach
+	- Routing by rumor
+	- Router does now know about the network beyond its neighbors
+	- Share parts of route table with neighbors
+	
+Link State Protocols:
+	- Each router creates a connectivity map
+	- To allow this, each router advertises information about its interfaces until all routers develop the same map
+	- Each router independently uses its own map
+	- CPU heavy
+	- Faster than distance vector
+	
+Metrics:
+	- Lower metric = better
+	- Same metric to same destination = load balancing between similar routes
+		- ECMP (Equal Cost Multi-Path)
+	- RIP: Hop Count
+	- EIGRP: Bandwith and Delay
+	- OSPF: Cost
+	- ISIS: Cost (All hops 10 before config)
+	
+Administrative Distance:
+	- Determines which routing protocol is preferred
+	- Lower AD is preferred and indicates the protocol is considered is trustworthy 
+	
+	
