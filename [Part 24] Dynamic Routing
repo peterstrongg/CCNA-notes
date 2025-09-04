@@ -42,5 +42,6 @@ Metrics:
 Administrative Distance:
 	- Determines which routing protocol is preferred
 	- Lower AD is preferred and indicates the protocol is considered is trustworthy 
+	- ONLY APPLIES TO ROUTES TO THE SAME DESTINATION
 	
 	
