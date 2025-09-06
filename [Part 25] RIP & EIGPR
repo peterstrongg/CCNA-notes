@@ -1,0 +1,56 @@
+RIP:
+	- Routing INformation Protocol
+	- Distance Vector IGP
+	- Hop Count Metric
+	- 15 hops maximum
+	- RIPv1 and RIPv2 for ipv4
+	- RIPng for ipv6
+	Message Types:
+		- Request: asks RIP enabled neighbor routers to send their routing table
+		- Response: To send the local routers routing table to neghboring routers
+		
+	- RIP enabled routers share their routing table every 30 seconds
+	
+RIPv1:
+	- Advertises classful addresses
+	- No support for VLSM and CIDR
+	- Subnet mask info is not included, assumes class by ip range 
+
+RIPv2:
+	- Supports VLSM and CIDR
+	- Subnet mask info in advertisements
+	- Messages are multicast to 224.0.0.9
+	
+"router rip": enter rip config mode
+"version 2"
+"no auto-summary": auto-summary converts to classes IPs
+"network 10.0.0.0": 	
+	- Look for interfaces with an IP address that is in the specified range
+	- Active RIP on the interfaces that fall in the range
+	- Form adjacencies with connceted RIP neighbors
+	- Advertise network prefix of the interfaces
+	- Tells router which interfaces to activate RIP on 
+
+"passive-interface g2/0": Stops sending RIP advertisements out of the G2/0 interface
+"default-information originate": Default routes are advertised
+"show ip protocols"
+"maximum paths <number>" Max hop config (default 4)
+"distance <distance>" change AD
+
+EIGRP:
+	- Enhanced Interior Gateway Routing Protocol
+	- Formerly Cisco Proprietary but opened it
+	- Multicast 224.0.0.10
+	- Only IGP that can perform unequal cost load balancing
+	- Wildcard mask
+		- Inverted subnet mask
+
+"router eigrp <AS Number>"
+"no auto-summary"
+"passive interface g2/0"
+"network <ip>"
+
+
+
+	
+	
