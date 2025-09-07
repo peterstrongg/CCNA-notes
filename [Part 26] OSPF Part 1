@@ -1,0 +1,47 @@
+Link State Protocols:
+	- Connectivity Maps are created on each router
+
+OSPF:
+	- Dijkstras Algorithm
+	- OSPFv1: OLD Not in use
+	- OSPFv2: IPv4 (CCNA)
+	- OSPFv3: IPv6 and v4
+	
+	- Routers store info in LSAs( Link state ads)
+	- Stored in LSDB (Link state DB)
+	- Routers will flood LSAs until all routers in the OSPF area develop the same map of the network (LSDB)
+	
+LSA Flooding:
+	- LSA Contents:
+		- RID
+		- IP
+		- Cost
+
+OSPF Basic steps:
+	1. Become neighbors with other routers connected to the same segment
+	2. Exchange LSAs with neighbor routers
+	3. Calculate the best routes and insert into routing table
+
+OSPF Areas:
+	- Areas divide the network
+	- Small networks can be single area without negative performance effects 
+	- An area that share the same LSDB
+	- Backbone area: All areas must connect to area 0 (backbone area)
+	- Routers with all interface in the same area are called internal routers
+	- Area Border Routers (ABRs) Areas that are in multiple areas
+	- Recommended to have abr only connected to no more than 2 areas
+	- Backbone routers: areas connected to the backbone area 
+	
+OSPF Configuration (Single Area):
+	- "router ospf <process id>"
+	- "network <ip> <wildcard mask> area <area #>"
+	- "passive-interface <iface id>"
+	-   
+	
+	  00001100.00000000
+G0/1: 00001100.00000001
+G0/2: 00001101.00000001
+A: 	  11111111.00000000
+B:    11111111.00000001
+C:    11111110.00000000
+D:    11111100.00000000
