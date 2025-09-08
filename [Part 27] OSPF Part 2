@@ -1,0 +1,45 @@
+OSPF Cost:
+	- Metric is called cost in OSPF
+	- Calculated by dividing a reference bandwidth by the interfaces bandwidth
+	- Default reference is 100
+	- All values less than 1 = 1
+	- Reference/Interface bandwidth
+	"auto-cost reference-bandwidth <number>"
+		- Change reference bandwidth
+	
+	- You should configure a reference bandwidth grater than the fastest links in your network
+	- Configure on all routers in the network
+	- Loopback interfaces have cost of 1
+	"ip ospf cost <cost>"
+		- Configure cost on interface
+		
+	"bandwidth <bandwidth (kbs)>" Only changes value used to calculate cost, "speed <speed>" Changes actual speed
+
+OSPF Neighbors:
+	- Down State:
+		- Doesnt know any neighbors
+	- Init
+		- Hello packet is received
+	- 2-way state
+		- Sends back packet with both RIDs
+		- Router received a packet with its own RID in it
+	- Exstart state
+		- Router with higher RID will become master
+		- Lower RID will be slave
+		- Prepare to send LSDBs
+	- Exchange State
+		- Exchange DBDs which contain a list of LSAS in their LSDBs
+		- Not sending full LSAs just that they have them
+	- Loading
+		- Routers send LSR messages to send them LSAS they don't have
+		- Routers send LSUs containing LSAs the neighbor does not have
+		- LSAck to acknoledge that they received
+	- Full
+		- Routers have full OSPF adjacency
+		- Dead timer of 40s
+		- Neighbor is removed if dead timer = 0
+		
+"show ip ospf neighbor"
+"ip ospf <process-id> rea <area>"
+"passive-interface default" Enables passive interface on all interfaces
+	- "no passive-interface <iface>" to disable on specific interfaces
