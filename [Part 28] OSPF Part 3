@@ -1,0 +1,10 @@
+Loopback Interfaces:
+  - Always UP/UP
+  - Provides consistent way to reach router
+
+OSPF Connection Types:
+  - Broadcast
+    - Default on Ethernet and FDDI
+  - p2p
+    - Enabled on ppp and HDLC
+  - Non Broadcast
