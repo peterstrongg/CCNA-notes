@@ -1,0 +1,45 @@
+FHRPs:
+	- Protect the default gateway used on a subnet by allowing two or
+	more routers to provide backup for that address; in the event of a 
+	failure of an active router, the backup router will take over the address
+	
+Routers share a VIP (Virtual IP Address) PCs are configured to have default gateway to VIP
+Router Pairs send messages to negotiate which and active and standby
+
+HSRP (Hot Standby Router Protocol)
+	- Cisco Proprietary
+	- Activae and standby router are selected
+	- 2 versions
+		- V2 adds IPv6 support and increases the number of groups that can be configured
+		- Mixed version is not acceptable
+	- v1: 224.0.0.2
+	- v2: 224.0.0.102
+	- Virtual MACs:
+		- V1: 0000.0c07.acxx (XX = HSRP GROUP NUMBER)
+		- V2: 0000.0c9f.fXXX (XXX = HSRP GROUP NUMBER)
+		
+VRRP (Virtual Router Redundancy Protocol)
+	- Open Standary
+	- Master and backup router
+	- 224.0.0.18
+	- VMAC: 0000.5e00.01XX
+
+GLBP (Gateway Load Balancing Protocol)
+	- Cisco Proprietary
+	- Load balances within a single subnet
+	- AVG (Active virtual gateway) is elected
+	- AVFs forward to AVG
+	- 224.0.0.102
+	- VMAC: 0007.b400.XXYY (XX= GLBP group number, YY = AVFs  number)
+	
+HSRP Config:
+	- Interface config mode
+	- "standby version <vers. no>
+	- "standby <group-number>"
+	- group No. must match between routers
+	- "standby 1 ip <gateway ip>"
+	- "standby 1 priority <priority>"
+		- Highest Priority
+		- Highest IP
+	- "standby 1 preempt"
+	- "show standby"
