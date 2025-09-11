@@ -1,0 +1,35 @@
+TCP:
+	- Connection Oriented
+		- Establish connection before sending data
+	- Reliable
+	- Dest must acknoledge that it receives each TCP segment
+	- If host doesnt receive ACK, it sends segment again
+	- Sequence Number
+	- Flow control
+		- Dest host can tell source to increase/decrease rate that data is sent
+	
+TCP Header:
+	- SRC port
+	- DEST Port
+	- SYN
+	- ACK
+	- FIN
+	- Window Size (Flow control)
+	
+TCP Three way handshake:
+	- SYN (Sync) ->
+	- SYN, ACK	<-
+	- ACK ->
+	- Termination of connections:
+		- FIN ->
+		- ACK <-
+		- FIN <-
+		- ACK ->
+		
+UDP:
+	- Connectionless
+	- Not reliable
+	
+	
+Port Numbers:
+	- 
