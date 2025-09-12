@@ -1,0 +1,14 @@
+- Running out of IPv4 addresses
+	- 2^32 addresses available
+	- NAT and Private IPs have helped conserve the use of IPv4
+
+IPv6:
+	- 128 bits
+	- 32 Hexedecimal Characters
+		- Divided into 8 groups of 4
+
+Shortening/Abbreviating IPV6 Addresses:
+	- Leading 0s can be removed
+	- Consecutive quartets of all 0s can be replaced with a double colon
+		- Can only be abbreviated once in a given addresses
+	- 
